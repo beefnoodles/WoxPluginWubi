@@ -36,7 +36,9 @@ class Wubi(Wox):
         conn = sqlite3.connect('wubi-haifeng86.db')
         c = conn.cursor()
         for _char in strs:
-            cursor = c.execute("SELECT goucima from goucima WHERE zi='" + _char + "' limit 20")
+            if len(ret) >= 20:
+                break
+            cursor = c.execute("SELECT goucima from goucima WHERE zi='" + _char + "'")
             for row in cursor:
                 ret[_char]=row[0]
         conn.close()
@@ -46,6 +48,11 @@ class Wubi(Wox):
     def query(self,key):
         results = []
         title = "输入汉字或者五笔编码"
+
+        if len(key) == 0:
+            results.append({"Title": "输入剪贴板内容" ,"IcoPath":"Images/app.png","JsonRPCAction":{"method": "pasteContent","dontHideAfterAction":True}})
+            return results
+            
 
         if self.is_all_chinese(key):
             ret = self.findCode(key)
@@ -61,12 +68,19 @@ class Wubi(Wox):
                 break
         return results
 
+    
+
     def copyContent(self,content):
         if _clipboard_exit:
             clipboard.copy(content)
         #webbrowser.open("https://baidu.com/s?word="+content)
         #todo:doesn't work when move this line up 
         #WoxAPI.change_query(url)
+
+    def pasteContent(self):
+        if _clipboard_exit:
+            key = clipboard.paste()
+            WoxAPI.change_query("wb " + key)
 
 if __name__ == "__main__":
     Wubi()
