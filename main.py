@@ -23,7 +23,7 @@ class Wubi(Wox):
         if 0 < len(codes) <= 4:
             conn = sqlite3.connect('wubi-haifeng86.db')
             c = conn.cursor()
-            cursor = c.execute("SELECT * from goucima WHERE goucima like '" + codes + "%'")
+            cursor = c.execute("SELECT * from goucima WHERE goucima like '" + codes + "%' limit 20")
             for row in cursor:
                 ret[row[0]]=row[1]
             conn.close()
@@ -36,7 +36,7 @@ class Wubi(Wox):
         conn = sqlite3.connect('wubi-haifeng86.db')
         c = conn.cursor()
         for _char in strs:
-            cursor = c.execute("SELECT goucima from goucima WHERE zi='" + _char + "'")
+            cursor = c.execute("SELECT goucima from goucima WHERE zi='" + _char + "' limit 20")
             for row in cursor:
                 ret[_char]=row[0]
         conn.close()

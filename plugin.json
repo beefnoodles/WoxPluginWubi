@@ -4,7 +4,7 @@
     "Name":"Wubi",
     "Description":"Wubi Table Query Tool",
     "Author":"beefnoodles",
-    "Version":"1.0.0",
+    "Version":"1.0.1",
     "Language":"python",
     "Website":"https://github.com/beefnoodles/WoxPluginWubi",
     "IcoPath":"Images\\app.png",
