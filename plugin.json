@@ -1,0 +1,12 @@
+{
+    "ID":"d248219c-0dcd-11eb-b0b0-6f02a4caae38",
+    "ActionKeyword":"wb",
+    "Name":"Wubi",
+    "Description":"Wubi Table Query Tool",
+    "Author":"beefnoodles",
+    "Version":"1.0.0",
+    "Language":"python",
+    "Website":"http://www.getwox.com",
+    "IcoPath":"Images\\app.png",
+    "ExecuteFileName":"main.py"
+}
