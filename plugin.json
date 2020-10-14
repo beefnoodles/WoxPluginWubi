@@ -6,7 +6,7 @@
     "Author":"beefnoodles",
     "Version":"1.0.0",
     "Language":"python",
-    "Website":"http://www.getwox.com",
+    "Website":"https://github.com/beefnoodles/WoxPluginWubi",
     "IcoPath":"Images\\app.png",
     "ExecuteFileName":"main.py"
 }
